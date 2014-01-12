@@ -1,0 +1,15 @@
+[submodule "3rdparty/jasmine-jquery"]
+	path = 3rdparty/jasmine-jquery
+	url = git://github.com/velesin/jasmine-jquery
+[submodule "3rdparty/jasmine"]
+	path = 3rdparty/jasmine
+	url = git://github.com/pivotal/jasmine
+[submodule "3rdparty/sinon"]
+	path = 3rdparty/sinon
+	url = git://github.com/cjohansen/Sinon.JS
+[submodule "3rdparty/jquery"]
+	path = 3rdparty/jquery
+	url = git://github.com/jquery/jquery.git
+[submodule "3rdparty/bootstrap"]
+	path = 3rdparty/bootstrap
+	url = git://github.com/twbs/bootstrap

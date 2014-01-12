@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Eigenfactorizer</title>
+  <link href="../3rdparty/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <link href="../css/pubmed.css" rel="stylesheet" />
+</head>
+<body class="popup-page">
+  <p>
+    <img width="16" height="16" src="../images/eigenfactor16.png" alt="" />
+    Eigenfactorizer color codes journals in PubMed according to their influence.</p>
+
+  <table id="color-table" class="table-condensed">
+    <tr>
+      <th>Journal Color</th>
+    </tr>
+    <tr>
+      <td class="eigenfactor-sample eigenfactor6">Highest Influence</td>
+    </tr>
+    <tr>
+      <td class="eigenfactor-sample eigenfactor5">Higher Influence</td>
+    </tr>
+    <tr>
+      <td class="eigenfactor-sample eigenfactor4">Above Average Influence</td>
+    </tr>
+    <tr>
+      <td class="eigenfactor-sample eigenfactor3">Below Average Influence</td>
+    </tr>
+    <tr>
+      <td class="eigenfactor-sample eigenfactor2">Lower Influence</td>
+    </tr>
+    <tr>
+      <td class="eigenfactor-sample eigenfactor1">Lowest Influence</td>
+    </tr>
+    <tr>
+      <td class="eigenfactor-sample eigenfactor0">Unknown Influence</td>
+    </tr>
+  </table>
+
+  <div>
+    <label class="control-label" for="color-scheme">Theme</label>
+    <select id="color-scheme" name="color-scheme" class="form-control">
+      <option value="0">Hot &amp; Cold</option>
+      <option value="1">Stop &amp; Go</option>
+      <option value="2">Green</option>
+      <option value="3">Orange</option>
+      <option value="4">Blue</option>
+    </select>
+  </div>
+
+  <div id="options"><a target="_blank" href="options.html">More options &raquo;</a></div>
+  <div id="learn-more"><a target="_blank" href="http://www.eigenfactor.org/">Learn more &raquo;</a></div>
+  
+  <script type="text/javascript" src="../3rdparty/jquery-2.0.3.min.js"></script>
+  <script type="text/javascript" src="../javascript/RemotePort.js"></script>
+  <script type="text/javascript" src="../javascript/DefaultOptions.js"></script>
+  <script type="text/javascript" src="../javascript/RemoteOptionSource.js"></script>
+  <script type="text/javascript" src="../javascript/Color.js"></script>
+  <script type="text/javascript" src="../javascript/ColorsUI.js"></script>
+  <script type="text/javascript" src="../javascript/GetOptions.js"></script>
+  </body>
+</html>

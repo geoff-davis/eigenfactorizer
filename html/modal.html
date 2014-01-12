@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Eigenfactorizer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Geoff Davis" />
+
+  <link rel="shortcut icon" href="../images/eigenfactor16.png" type="image/png" />
+  <link href="../3rdparty/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <link href="../css/pubmed.css" rel="stylesheet" />
+</head>
+<body class="modal-page">
+  <div>
+    <div class="modal-body">
+      <p>The <a href="https://chrome.google.com/webstore/detail/ibonnidhlcjabmcoagfkimfpikedbmdd"
+                target="_top">Eigenfactorizer Chrome Extension</a>
+      helps you find the best papers in PubMed.  The extension color codes journal titles
+      according to their Article Influence score.  The score is computed in a manner similar to the way
+      that Google's PageRank algorithm ranks web pages:</p>
+
+      <ul>
+	<li>Journals whose articles are <em>more frequently cited</em> and cited in
+	<em>more influential journals</em> receive a <em>higher</em> score.</li>
+	<li>Journals whose articles are <em>less frequently cited</em> and cited in
+	<em>less influential journals</em> receive a <em>lower</em> score.</li>
+      </ul>
+
+      <table id="color-table" class="table-condensed" align="center">
+	<tr>
+	  <th>Color</th>
+	  <th>Journal's Article Influence Score</th>
+	</tr>
+	<tr>
+	  <td class="eigenfactor-sample eigenfactor6">Highest Influence</td>
+	  <td class="description">log(Score) is 2+ standard deviations above the mean</td>
+	</tr>
+	<tr>
+	  <td class="eigenfactor-sample eigenfactor5">Higher Influence</td>
+	  <td class="description">log(Score) is 1+ standard deviation above the mean</td>
+	</tr>
+	<tr>
+	  <td class="eigenfactor-sample eigenfactor4">Above Average Influence</td>
+	  <td class="description">log(Score) is above the mean</td>
+	</tr>
+	<tr>
+	  <td class="eigenfactor-sample eigenfactor3">Below Average Influence</td>
+	  <td class="description">log(Score) is below the mean</td>
+	</tr>
+	<tr>
+	  <td class="eigenfactor-sample eigenfactor2">Lower Influence</td>
+	  <td class="description">log(Score) is 1+ standard deviation below the mean</td>
+	</tr>
+	<tr>
+	  <td class="eigenfactor-sample eigenfactor1">Lowest Influence</td>
+	  <td class="description">log(Score) is 2+ standard deviations below the mean</td>
+	</tr>
+	<tr>
+	  <td class="eigenfactor-sample eigenfactor0">Unknown Influence</td>
+	  <td class="description">Unknown (not enough data available)</td>
+	</tr>
+      </table>
+
+      <div class="theme-selector">
+        <label class="control-label" style="display: inline-block;">Theme</label>
+        <div class="controls" style="display: inline-block;">
+          <select id="color-scheme" name="color-scheme">
+            <option value="0">Hot &amp; Cold</option>
+            <option value="1">Stop &amp; Go</option>
+            <option value="2">Green</option>
+            <option value="3">Orange</option>
+            <option value="4">Blue</option>
+          </select>
+        </div>
+      </div>
+      <a href="http://www.eigenfactor.org" target="_top">Learn more &raquo;</a>
+    </div>
+  </div> <!-- container -->
+
+  
+  <script src="../3rdparty/jquery-2.0.3.min.js"></script>
+  <script src="../3rdparty/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../javascript/RemotePort.js"></script>
+  <script type="text/javascript" src="../javascript/DefaultOptions.js"></script>
+  <script type="text/javascript" src="../javascript/RemoteOptionSource.js"></script>
+  <script type="text/javascript" src="../javascript/Color.js"></script>
+  <script type="text/javascript" src="../javascript/ColorsUI.js"></script>
+  <script type="text/javascript" src="../javascript/GetOptions.js"></script>
+</body>
+</html>

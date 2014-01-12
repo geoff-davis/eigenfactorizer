@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en" itemscope="" itemtype="http://schema.org/Product"><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eigenfactorizer Options</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Geoff Davis">
+  <meta name="twitter:widgets:csp" content="on">
+
+  <link rel="shortcut icon" href="../images/eigenfactor16.png" type="image/png">
+  <link href="../3rdparty/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+  <link href="../css/pubmed.css" rel="stylesheet">
+
+  <!-- For G+ -->
+  <meta itemprop="name" content="Eigenfactorizer Chrome extension">
+  <meta itemprop="description" content="An extension that color codes journals in PubMed according to their influence.">
+
+
+</head>
+<body class="options-page">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <img src="../images/eigenfactor16.png" width="16" height="16" alt="">
+        Eigenfactorizer Options
+      </a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <form class="form-horizontal" role="form">
+    <fieldset>
+      <legend>Colors</legend>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="color-scheme">Theme</label>
+        <div class="controls col-sm-10">
+	  <select id="color-scheme" name="color-scheme" class="form-control">
+	    <option value="0">Hot &amp; Cold</option>
+	    <option value="1">Stop &amp; Go</option>
+	    <option value="2">Green</option>
+	    <option value="3">Orange</option>
+	    <option value="4">Blue</option>
+	  </select>
+	  <p class="help-block">Change the journal color scheme.</p>
+	</div>
+      </div>
+
+      <div class="col-sm-2"></div>
+      <div class="controls col-sm-10">
+	<table id="color-table" class="table-condensed">
+	  <tbody><tr>
+	    <th>Color</th>
+	    <th>Journal's Article Influence Score</th>
+	  </tr>
+	  <tr>
+	    <td class="eigenfactor-sample eigenfactor6">Highest Influence</td>
+	    <td class="description">log(Score) is 2+ standard deviations above the mean</td>
+	  </tr>
+	  <tr>
+	    <td class="eigenfactor-sample eigenfactor5">Higher Influence</td>
+	    <td class="description">log(Score) is 1+ standard deviation above the mean</td>
+	  </tr>
+	  <tr>
+	    <td class="eigenfactor-sample eigenfactor4">Above Average Influence</td>
+	    <td class="description">log(Score) is above the mean</td>
+	  </tr>
+	  <tr>
+	    <td class="eigenfactor-sample eigenfactor3">Below Average Influence</td>
+	    <td class="description">log(Score) is below the mean</td>
+	  </tr>
+	  <tr>
+	    <td class="eigenfactor-sample eigenfactor2">Lower Influence</td>
+	    <td class="description">log(Score) is 1+ standard deviation below the mean</td>
+	  </tr>
+	  <tr>
+	    <td class="eigenfactor-sample eigenfactor1">Lowest Influence</td>
+	    <td class="description">log(Score) is 2+ standard deviations below the mean</td>
+	  </tr>
+	  <tr>
+	    <td class="eigenfactor-sample eigenfactor0">Unknown Influence</td>
+	    <td class="description">Unknown (not enough data available)</td>
+	  </tr>
+	</tbody></table>
+	</div>
+      </fieldset>
+
+      <fieldset>
+	<legend>Options</legend>
+
+	<div class="form-group">
+	  <label class="control-label col-sm-2" for="modal-button">Introduction</label>
+	  <div class="controls col-sm-10">
+            <button class="btn btn-default" id="modal-button" value="1">On</button>
+	    <p class="help-block">Show an Eigenfactorizer overview page on the next visit to PubMed.</p>
+	  </div>
+	</div>
+
+	<div class="form-group">
+	  <label class="control-label col-sm-2" for="color-key-button">Color key</label>
+	  <div class="controls col-sm-10">
+            <button class="btn btn-default" id="color-key-button" value="1">On</button>
+	    <p class="help-block">Show a table of journal colors on each page.</p>
+	  </div>
+	</div>
+
+	<div class="form-group">
+	  <label class="control-label col-sm-2" for="search-button">Search</label>
+	  <div class="controls col-sm-10">
+            <button class="btn btn-default" id="search-button" value="1">On</button>
+	    <p class="help-block">Show links to search for an article on Google Scholar and Microsoft Academic Search.</p>
+	  </div>
+	</div>
+
+	<div class="form-group">
+	  <label class="control-label col-sm-2" for="share-button">Share</label>
+	  <div class="controls col-sm-10">
+            <button class="btn btn-default" id="share-button" value="1">On</button>
+	    <p class="help-block">Show links to share an article on sites such as Facebook, Google+, and Twitter.</p>
+	  </div>
+	</div>
+
+	<div class="form-group">
+	  <label class="control-label col-sm-2" for="clear-cache">Cache</label>
+	  <div class="controls col-sm-10">
+	    <button class="btn btn-default" id="clear-cache">Clear</button>
+	    <p class="help-block">Clear the <span id="cached-item-count"></span> journals in the cache.</p>
+	  </div>
+	</div>
+
+	<div class="form-group">
+	  <label class="control-label col-sm-2" for="debugging-button">Logging</label>
+	  <div class="controls col-sm-10">
+            <button class="btn btn-default" id="debugging-button" value="0">Off</button>
+	    <p class="help-block">Enable console logging for debugging.</p>
+	  </div>
+	</div>
+      </fieldset>
+
+      <fieldset>
+	<legend>Share</legend>
+	<div class="form-group">
+	  <label class="control-label text-control col-sm-2">Tell your friends</label>
+	  <div class="controls col-sm-10">
+	    <p class="help-block">
+	      Recommend this extension to others<br><br>
+	    </p>
+	    <ul>
+	      <li><a href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fchrome.google.com%2Fwebstore%2Fdetail%2Fibonnidhlcjabmcoagfkimfpikedbmdd&amp;t=Better%20PubMed%20with%20Eigenfactorizer">Share on Facebook</a></li>
+  <li><a href="https://plus.google.com/share?url=https%3A%2F%2Fchrome.google.com%2Fwebstore%2Fdetail%2Fibonnidhlcjabmcoagfkimfpikedbmdd">Share on Google+</a></li>
+  <li><a href="http://twitter.com/intent/tweet?url=https%3A%2F%2Fchrome.google.com%2Fwebstore%2Fdetail%2Fibonnidhlcjabmcoagfkimfpikedbmdd&amp;text=Better%20PubMed%20with%20Eigenfactorizer">Share on Twitter</a></li>
+</ul>
+<!--
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fchrome.google.com%2Fwebstore%2Fdetail%2Fibonnidhlcjabmcoagfkimfpikedbmdd&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=21&amp;appId=131909553560740" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe><br />
+<g:plusone size="medium" annotation="inline" href="https://chrome.google.com/webstore/detail/ibonnidhlcjabmcoagfkimfpikedbmdd"></g:plusone><br />
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://chrome.google.com/webstore/detail/ibonnidhlcjabmcoagfkimfpikedbmdd" data-text="Check out the Eigenfactorizer Chrome extension">Tweet</a>
+-->
+<p></p>
+	  </div>
+	</div>
+      </fieldset>
+
+      <fieldset>
+	<legend>Tests</legend>
+	<div class="form-group">
+	  <label class="control-label col-sm-2">Unit tests</label>
+	  <div class="controls col-sm-10">
+            <a class="btn btn-default" id="run-tests-button" href="../spec/SpecRunner.html">Run</a>
+	    <p class="help-block">Run the unit test suite.</p>
+	  </div>
+	</div>
+      </fieldset>
+
+      <fieldset>
+	<legend>Credits</legend>
+
+	<div class="form-group">
+	  <label class="control-label text-control col-sm-2">Code</label>
+	  <div class="controls">
+	    <p class="help-block">
+	    The Eigenfactorizer Chrome extension was written by <a href="http://www.geoffdavis.net/">Geoff Davis</a>
+	    </p>
+	  </div>	  
+	</div>
+
+	<div class="form-group">
+	  <label class="control-label text-control col-sm-2">Data</label>
+	  <div class="controls">
+	    <p class="help-block">
+	      Article Impact scores come from the <a href="http://www.eigenfactor.org/about.php">Eigenfactor Project™</a>.
+	    </p>
+	  </div>	  
+	</div>
+
+	<div class="form-group">
+	  <label class="control-label col-sm-2">License</label>
+	  <div class="controls col-sm-10">
+	    <p class="help-block">
+	    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png"></a><br><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dct:title" rel="dct:type">The Eigenfactorizer Chrome extension</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.geoffdavis.net" property="cc:attributionName" rel="cc:attributionURL">Geoff Davis</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+	    </p>
+	  </div>	  
+	</div>
+	
+      </fieldset>
+    </form>
+   
+  </div> <!-- /container -->
+
+  <script type="text/javascript" src="../3rdparty/jquery-2.0.3.min.js"></script>
+  <script type="text/javascript" src="../3rdparty/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../javascript/RemotePort.js"></script>
+  <script type="text/javascript" src="../javascript/Logger.js"></script>
+  <script type="text/javascript" src="../javascript/DefaultOptions.js"></script>
+  <script type="text/javascript" src="../javascript/RemoteOptionSource.js"></script>
+  <script type="text/javascript" src="../javascript/Cache.js"></script>
+  <script type="text/javascript" src="../javascript/Color.js"></script>
+  <script type="text/javascript" src="../javascript/OptionsUI.js"></script>
+  <script type="text/javascript" src="../javascript/ColorsUI.js"></script>
+  <script type="text/javascript" src="../javascript/GetOptions.js"></script>
+<div id="fb-root"></div>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
+
+</body></html>
